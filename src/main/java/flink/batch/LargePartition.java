@@ -9,18 +9,18 @@ import org.apache.flink.configuration.Configuration;
 
 public class LargePartition {
 
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         ParameterTool params = ParameterTool.fromArgs(args);
 
-		ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+        ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-		new LargePartition(env).run(params);
-	}
+        new LargePartition(env).run(params);
+    }
 
-	private final ExecutionEnvironment env;
+    private final ExecutionEnvironment env;
 
-	public LargePartition(ExecutionEnvironment env) {
-	    this.env = env;
+    public LargePartition(ExecutionEnvironment env) {
+        this.env = env;
     }
 
     public void run(ParameterTool params) throws Exception {
@@ -31,9 +31,9 @@ public class LargePartition {
         env.execute("Large File Job");
     }
 
-	private static class Rich extends RichMapFunction<String, String> {
+    private static class Rich extends RichMapFunction<String, String> {
 
-	    private IntCounter c = new IntCounter();
+        private IntCounter c = new IntCounter();
 
         public void open(Configuration parameters) throws Exception {
             super.open(parameters);

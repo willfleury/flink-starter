@@ -1,0 +1,1 @@
+Flink project with Scala, Java, maven-polygot-groovy and some samples
